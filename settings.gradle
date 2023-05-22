@@ -1,0 +1,3 @@
+rootProject.name = "Dependencies"
+include ':app'
+include ':depend'
