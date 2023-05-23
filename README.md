@@ -17,4 +17,4 @@ allprojects {
 dependencies {
     implementation 'com.github.OSAILab:Dependencies:latest'
 }
-```java
+```
