@@ -3,13 +3,13 @@ plugins {
 }
 
 android {
-    compileSdkVersion 33
+    compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.osai.dependencies"
-        minSdkVersion 21
-        targetSdkVersion 33
+        minSdkVersion 18
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
     }
@@ -19,4 +19,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'],dir: '../depend/libs')
+    implementation project(":depend")
 }

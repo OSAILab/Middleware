@@ -3,12 +3,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion 33
+    compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 33
+        minSdkVersion 18
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
     }
@@ -17,6 +17,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    sourceSets.main.jniLibs.srcDirs = ['src/main/jni']
 }
 
 dependencies {
@@ -24,4 +25,5 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:3.8.0'
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.tencent:mmkv:1.2.11'
+    implementation files('libs\\classes.jar')
 }
