@@ -5,7 +5,7 @@
 ---------
 
 ```
-//工程根目录build.gradle:
+//project build.gradle:
 allprojects {
     repositories {
         maven { url 'https://jitpack.io' }
