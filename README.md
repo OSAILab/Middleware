@@ -5,7 +5,7 @@
 ---------
 
 ```
-//工程根目录build.gradle:
+//project build.gradle:
 allprojects {
     repositories {
         maven { url 'https://jitpack.io' }
@@ -15,6 +15,6 @@ allprojects {
 
 //app build.gradle:
 dependencies {
-    implementation 'com.github.OSAILab:Dependencies:latest'
+    implementation 'com.github.OSAILab:AndroidMiddleware:1.0'
 }
 ```
