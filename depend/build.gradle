@@ -26,5 +26,5 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:3.8.0'
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.tencent:mmkv:1.2.11'
-    implementation files('libs\\middleware.jar')
+    implementation files('libs\\classes.jar')
 }
