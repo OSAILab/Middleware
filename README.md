@@ -45,8 +45,8 @@ Middleware.getInstance().getDeviceExpireTime();
 Middleware.getInstance().activationDevice(code);
 
 4.识别商品
-String[] results = Middleware.getInstance().recognize(config);
+String[] results = Middleware.getInstance().recognize(null);
 
 5.学习商品
-Middleware.getInstance().update(selectProduct);
+Middleware.getInstance().update(sku);
 ```
