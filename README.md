@@ -12,7 +12,7 @@ allprojects {
 
 //app build.gradle:
 dependencies {
-    implementation 'com.github.OSAILab:Dependencies:{latest}'
+    implementation 'com.github.OSAILab:Middleware:{latest}'
 }
 ```
 
