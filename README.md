@@ -21,25 +21,27 @@ dependencies {
 
 ```
 1.初始化SDK
+MiddlewareEventCallback callback = new MiddlewareEventCallback(){
+                                                                 
+   /**
+    * 初始化回调
+    * @method {@link Middleware#getDeviceExpireTime()}
+    * @param exceptionCode 成功{@link ExceptionCode#Exception_Not}
+    *                      设备过期{@link ExceptionCode#Exception_Expire}
+    *                      不支持该设备{@link ExceptionCode#Exception_Not_Support}
+    *                      无效激活码{@link ExceptionCode#Exception_InvalidCode}
+    *                      其他异常{@link ExceptionCode#Exception_Expire}
+    */
+     @Override
+     public void onInit(int exceptionCode) {
+         //初始化回调
+     }
+ }
+
 Middleware.MiddlewareConfigBuilder configBuilder = new Middleware.MiddlewareConfigBuilder()
                                                     .setContext(Context)
                                                     .setVid("厂家ID")
-                                                    .setCallback(new MiddlewareEventCallback(){
-                                                                 
-                                                                           /**
-                                                                            * 初始化回调
-                                                                            * @method {@link Middleware#getDeviceExpireTime()}
-                                                                            * @param exceptionCode 成功{@link ExceptionCode#Exception_Not}
-                                                                            *                      设备过期{@link ExceptionCode#Exception_Expire}
-                                                                            *                      不支持该设备{@link ExceptionCode#Exception_Not_Support}
-                                                                            *                      无效激活码{@link ExceptionCode#Exception_InvalidCode}
-                                                                            *                      其他异常{@link ExceptionCode#Exception_Expire}
-                                                                            */
-                                                                             @Override
-                                                                             public void onInit(int exceptionCode) {
-                                                                                 //初始化回调
-                                                                             }
-                                                                         })
+                                                    .setCallback(callback)
                                                     .setOpenCamera(true)
                                                     .build();
 Middleware.initialize(configBuilder);
@@ -51,7 +53,13 @@ Middleware.getInstance().getDeviceExpireTime();
 Middleware.getInstance().activationDevice(code);
 
 4.识别商品
-String[] results = Middleware.getInstance().recognize(null);
+//识别SDK正在使用的摄像头画面
+String[] results = Middleware.getInstance().recognize();
+//识别Bitmap
+String[] results = Middleware.getInstance().recognizeBitmap(Bitmap);
+//识别文件
+String[] results = Middleware.getInstance().recognizeFile(String);
+
 
 5.学习商品
 Middleware.getInstance().update(sku);
