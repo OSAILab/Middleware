@@ -38,7 +38,7 @@ MiddlewareEventCallback callback = new MiddlewareEventCallback(){
      }
  }
 
-Middleware.MiddlewareConfigBuilder configBuilder = new Middleware.MiddlewareConfigBuilder()
+Middleware.ConfigBuilder configBuilder = new Middleware.ConfigBuilder()
                                                     .setContext(Context)
                                                     .setVid("厂家ID")
                                                     .setCallback(callback)
