@@ -42,9 +42,8 @@ Middleware.ConfigBuilder configBuilder = new Middleware.ConfigBuilder()
                                                     .setContext(Context)
                                                     .setVid("厂家ID")
                                                     .setCallback(callback)
-                                                    .setOpenCamera(true)
-                                                    .build();
-Middleware.initialize(configBuilder);
+                                                    .setOpenCamera(true);
+Middleware.initialize(configBuilder.build());
 
 2.获取过期时间并激活识别功能
 Middleware.getInstance().getDeviceExpireTime();
