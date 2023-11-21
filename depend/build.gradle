@@ -28,4 +28,5 @@ dependencies {
     implementation 'com.tencent:mmkv:1.2.11'
     implementation 'com.google.zxing:core:3.3.0'
     implementation files('libs\\classes.jar')
+    implementation 'io.socket:socket.io-client:1.0.1'
 }
