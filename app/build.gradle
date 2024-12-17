@@ -14,6 +14,9 @@ android {
         versionName "1.0"
     }
 
+    buildFeatures {
+        buildConfig = false // 禁用 BuildConfig 生成
+    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -23,5 +26,5 @@ android {
 
 dependencies {
 //    implementation fileTree(include: ['*.jar'],dir: '../depend/libs')
-//    implementation project(":depend")
+    implementation project(":depend")
 }

@@ -13,6 +13,10 @@ android {
         versionName "1.1"
     }
 
+    buildFeatures {
+        buildConfig = false // 禁用 BuildConfig 生成
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
