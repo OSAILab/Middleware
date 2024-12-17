@@ -22,11 +22,9 @@ android {
 }
 
 dependencies {
-//    implementation 'com.tonyodev.fetch2:fetch2:3.0.12'
-//    implementation 'com.squareup.okhttp3:okhttp:3.8.0'
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.tencent:mmkv:1.2.11'
-//    implementation 'com.google.zxing:core:3.3.0'
     implementation files('libs\\classes.jar')
+    implementation files('com.github.OSAILab:Middleware:1.0.0_modle')
 //    implementation 'io.socket:socket.io-client:1.0.1'
 }
