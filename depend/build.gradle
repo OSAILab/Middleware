@@ -11,7 +11,9 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.1"
+
     }
+
 
     buildFeatures {
         buildConfig = false // 禁用 BuildConfig 生成
