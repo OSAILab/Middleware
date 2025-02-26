@@ -2,4 +2,54 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android.depend">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA"/>
+
+
+    <application  >
+
+        <service android:name="com.osai.middleware.camera.CameraService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":os_camera">
+            <meta-data
+                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+                android:resource="@xml/osai_device_filter" />
+        </service>
+
+        <service android:name="com.osai.middleware.camera.CameraService$Foreground"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="camera"
+            android:process=":os_fcamera">
+            <meta-data
+                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+                android:resource="@xml/osai_device_filter" />
+        </service>
+
+        <service android:name="com.osai.middleware.core.MiddlewareService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":os_ai">
+            <meta-data
+                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+                android:resource="@xml/osai_device_filter" />
+        </service>
+        <service android:name="com.osai.middleware.core.MiddlewareService$Foreground" android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="camera"
+            android:process=":os_fai">
+            <meta-data
+                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+                android:resource="@xml/osai_device_filter" />
+        </service>
+
+    </application>
+
 </manifest>
