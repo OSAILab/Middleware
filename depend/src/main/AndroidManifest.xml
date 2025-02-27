@@ -12,34 +12,29 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA"/>
 
 
-    <application  >
+    <application>
 
         <service android:name="com.osai.middleware.camera.CameraService"
             android:enabled="true"
             android:exported="false"
-            android:process=":os_camera">
-
-        </service>
+            android:process=":os_camera"/>
 
         <service android:name="com.osai.middleware.camera.CameraService$Foreground"
             android:enabled="true"
             android:exported="false"
             android:foregroundServiceType="camera"
-            android:process=":os_fcamera">
-
-        </service>
+            android:process=":os_fcamera"/>
 
         <service android:name="com.osai.middleware.core.MiddlewareService"
             android:enabled="true"
             android:exported="false"
-            android:process=":os_ai">
+            android:process=":os_ai"/>
 
-        </service>
-        <service android:name="com.osai.middleware.core.MiddlewareService$Foreground" android:enabled="true"
+        <service android:name="com.osai.middleware.core.MiddlewareService$Foreground"
+            android:enabled="true"
             android:exported="false"
             android:foregroundServiceType="camera"
-            android:process=":os_fai">
-        </service>
+            android:process=":os_fai"/>
 
     </application>
 

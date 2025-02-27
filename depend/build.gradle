@@ -1,5 +1,21 @@
 plugins {
     id 'com.android.library'
+    id 'maven-publish'
+}
+
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'com.github.OSAILab'
+            artifactId = 'Middleware'
+            version = '5.2.10_external'
+
+            afterEvaluate {
+                from components.release
+            }
+        }
+    }
+
 }
 
 android {
@@ -31,5 +47,4 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.tencent:mmkv:1.2.11'
     implementation files('libs\\classes.jar')
-//    implementation 'io.socket:socket.io-client:1.0.1'
 }
