@@ -13,28 +13,13 @@
 
 
     <application>
-
-        <service android:name="com.osai.middleware.camera.CameraService"
-            android:enabled="true"
-            android:exported="false"
-            android:process=":os_camera"/>
-
-        <service android:name="com.osai.middleware.camera.CameraService$Foreground"
-            android:enabled="true"
-            android:exported="false"
+        <service
+            android:name="com.osai.http.HttpService"
             android:foregroundServiceType="camera"
-            android:process=":os_fcamera"/>
+            android:process=":service"
+            android:permission="android.permission.FOREGROUND_SERVICE" >
 
-        <service android:name="com.osai.middleware.core.MiddlewareService"
-            android:enabled="true"
-            android:exported="false"
-            android:process=":os_ai"/>
-
-        <service android:name="com.osai.middleware.core.MiddlewareService$Foreground"
-            android:enabled="true"
-            android:exported="false"
-            android:foregroundServiceType="camera"
-            android:process=":os_fai"/>
+        </service>
 
     </application>
 
