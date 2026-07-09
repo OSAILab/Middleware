@@ -2,39 +2,48 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android.depend">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA"/>
-
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA" />
 
     <application>
 
-        <service android:name="com.osai.middleware.camera.CameraService"
+        <service
+            android:name="com.osai.middleware.camera.CameraService"
             android:enabled="true"
             android:exported="false"
-            android:process=":os_camera"/>
+            android:process=":os_camera" />
 
-        <service android:name="com.osai.middleware.camera.CameraService$Foreground"
+        <service
+            android:name="com.osai.middleware.camera.CameraService$Foreground"
             android:enabled="true"
             android:exported="false"
             android:foregroundServiceType="camera"
-            android:process=":os_fcamera"/>
+            android:process=":os_fcamera" />
 
-        <service android:name="com.osai.middleware.core.MiddlewareService"
+        <service
+            android:name="com.osai.middleware.core.MiddlewareService"
             android:enabled="true"
             android:exported="false"
-            android:process=":os_ai"/>
+            android:process=":os_ai" />
 
-        <service android:name="com.osai.middleware.core.MiddlewareService$Foreground"
+        <service
+            android:name="com.osai.middleware.core.MiddlewareService$Foreground"
             android:enabled="true"
             android:exported="false"
             android:foregroundServiceType="camera"
-            android:process=":os_fai"/>
+            android:process=":os_fai" />
+
+        <service
+            android:name="com.osai.http.HttpService"
+            android:foregroundServiceType="camera"
+            android:process=":service"
+            android:permission="android.permission.FOREGROUND_SERVICE" />
 
     </application>
 

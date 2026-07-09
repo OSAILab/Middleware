@@ -8,7 +8,7 @@ publishing {
         release(MavenPublication) {
             groupId = 'com.github.OSAILab'
             artifactId = 'Middleware'
-            version = '5.2.10_external'
+            version = '7.1.8_http'
 
             afterEvaluate {
                 from components.release
