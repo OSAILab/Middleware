@@ -3,6 +3,7 @@ plugins {
     id 'maven-publish'
 }
 
+if (!"true".equalsIgnoreCase(System.getenv("JITPACK"))) {
 publishing {
     publications {
         release(MavenPublication) {
@@ -16,6 +17,7 @@ publishing {
         }
     }
 
+}
 }
 
 android {
