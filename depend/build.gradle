@@ -3,12 +3,11 @@ plugins {
     id 'maven-publish'
 }
 
-if (!"true".equalsIgnoreCase(System.getenv("JITPACK"))) {
 publishing {
     publications {
         release(MavenPublication) {
             groupId = 'com.github.OSAILab'
-            artifactId = 'Middleware'
+            artifactId = "true".equalsIgnoreCase(System.getenv("JITPACK")) ? project.name : 'Middleware'
             version = '7.1.9_http'
 
             afterEvaluate {
@@ -17,7 +16,6 @@ publishing {
         }
     }
 
-}
 }
 
 android {
