@@ -8,7 +8,7 @@ publishing {
         release(MavenPublication) {
             groupId = 'com.github.OSAILab'
             artifactId = "true".equalsIgnoreCase(System.getenv("JITPACK")) ? project.name : 'Middleware'
-            version = '7.2.4'
+            version = '7.2.4_http'
 
             afterEvaluate {
                 from components.release
