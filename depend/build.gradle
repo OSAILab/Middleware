@@ -8,7 +8,7 @@ publishing {
         release(MavenPublication) {
             groupId = 'com.github.OSAILab'
             artifactId = "true".equalsIgnoreCase(System.getenv("JITPACK")) ? project.name : 'Middleware'
-            version = '7.2.4_http'
+            version = '7.3.0'
 
             afterEvaluate {
                 from components.release
@@ -44,6 +44,7 @@ android {
 }
 
 dependencies {
+    implementation 'com.squareup.okhttp3:okhttp:3.8.0'
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.tencent:mmkv:1.2.11'
     implementation files('libs\\classes.jar')
