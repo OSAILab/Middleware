@@ -1,0 +1,18 @@
+7.3.5 (2026-11-11) 内存边界与生命周期修复
+
+交付范围：Android 普通 low / HTTP low（armeabi-v7a、arm64-v8a），Windows x86 / x64 HTTPS，以及 Windows x86 + Android 普通 low 客户支持包。在线坐标分别为 com.github.OSAILab:Middleware:7.3.5 和 com.github.OSAILab:Middleware:7.3.5_http；本轮不新增 high。
+
+- 修复共享 SDK 的 UpgradeInfo 输出边界、空秤记录容量/长度/NUL、HTTP 产品字段、外部图像元数据与可访问字节数、图库导入容器及空推理结果处理；保留原公开接口，容量检查使用内部实现。
+- 修复预学习共享容器同步、SQLite 特征写入错误和资源清理，以及 base 的 HNSW、日志、编解码、推理输出和网络停止等边界/生命周期问题。保留 MNN 原有正批量支持，不引入 batch=1 限制。
+- Android JNI 修复字符串和局部/全局引用所有权、注册失败及异常清理。配套 Java/native 整体更新。
+- USB 相机按 dev 基线合并释放后写、copyFrame 行数、取消完成和关闭顺序修复；取消失败不提前释放在途 transfer，未取得锁时不解锁。完成等待采用固定截止时间，失败保留资源及上层所有者，供控制线程后续重试。
+- 回调中的生命周期请求在 Java 相机锁外拒绝同步关闭；保留既有接口，不新增回调重入异常、后台关闭线程或逐 transfer 日志。跨进程关闭失败时保留绑定。
+- 补齐交叉复审 XA01–XA06：YUYV/JPEG 转换核对尺寸、跨度、容量并处理尾部；Camera2 分别读取 Y/U/V 平面，保证 Image 异常清理、成套关闭和过期回调拒绝，上层通知在状态锁外执行；同一窗口重复绑定归还额外引用；USB 使用稳定所有者和独立帧快照，关闭成功前保留断开对象。
+
+接入要求：替换完整 AAR 并重新构建宿主 APK；相机 Java 与 native 需成套使用。不能只替换 libcamera.so 或仅修改依赖版本字符串。当前包是常规 SDK，ASan 等诊断特供包另行标识和交付。
+
+验证范围：生产构建、定向主机检查、ABI/API21 导入、quality 生产排除、实际构件/模型/依赖/示例/文档与校验和检查。QH-R66B / RK3566、Android 11 上普通 low 两 ABI 各完成 3 轮 USB 打开、取图、截图、关闭和重开，各取得 60 份有效帧；SDK/JNI 加载与受测 CheckJNI 路径通过。
+
+验收边界：Camera2 实机、模型及完整业务云端流程、客户原 APK、实际拔插和组合/长跑未验收；客户 HWUI/Bifrost/URB 事故的首次破坏者仍未确定。Windows 主机回归及普通/延迟 PE 导入、架构、子系统和 quality 排除检查与真实 Win7 验收分开记录；缺少匹配 SHA256 的 OS 6.1 证据时，正式门禁保持 2 / NOT_VERIFIED。
+
+
