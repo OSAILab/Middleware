@@ -1,0 +1,3 @@
+# Preserve the verified Android artifact payload on every checkout platform.
+depend/libs/** -text
+depend/src/main/assets/** -text
