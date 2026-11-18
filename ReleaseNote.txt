@@ -4,7 +4,7 @@
 2. 动态阈值和相对门槛继续生效；低于最低值的结果不能经重排、高分保底、历史或点选重新进入自动候选。全部不合格时返回空 rank，保留学习所需特征。
 3. 继承 7.4.0 三个既有接口的 HTTP 匹配样本增强管理；默认 20 条特征和 5 张图片分别遵守原有配额。缓存重载后的编号复用策略由 fresh 业务显式恢复，共享加载保持业务隔离。
 
-GitHub 发布范围：Android 普通 low 和 HTTP low，两版均含 armeabi-v7a、arm64-v8a。按需选择一种完整 AAR，替换后重新构建宿主 APK。Windows SDK 和客户支持包保持本地交付。
+GitHub 发布范围：Android 普通 low 和 HTTP low，两版均含 armeabi-v7a、arm64-v8a。按需选择一种完整 AAR，替换后重新构建宿主 APK。Windows SDK 和客户支持包保持本地交付。客户支持包沿用 Windows x86、一份双语文档、ReleaseNote 和 Android 获取入口，不包含 Android AAR。
 
 普通依赖：com.github.OSAILab:Middleware:7.4.1
 HTTP 依赖：com.github.OSAILab:Middleware:7.4.1_http
