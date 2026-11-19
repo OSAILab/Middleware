@@ -1,13 +1,7 @@
-7.4.1 (2026-11-18) 识别最低相似度更新
+7.4.2 (2026-11-19) 设备号与激活授权恢复
 
-1. 精选和普通多选 Top N 启用模型 min_conf 的原始相似度下限，默认值由本轮已审查实现的 0.56 调整为 0.5。模型内显式 minconf 继续优先；精选预学习分支沿用既有 0.4 特例，不新增运行时设置接口。
-2. 动态阈值和相对门槛继续生效；低于最低值的结果不能经重排、高分保底、历史或点选重新进入自动候选。全部不合格时返回空 rank，保留学习所需特征。
-3. 继承 7.4.0 三个既有接口的 HTTP 匹配样本增强管理；默认 20 条特征和 5 张图片分别遵守原有配额。缓存重载后的编号复用策略由 fresh 业务显式恢复，共享加载保持业务隔离。
+首次初始化时请传入该设备固定使用的 VID。设备号和可用的 MAC 可以在本地读取。已有有效本地永久授权的设备可以离线继续使用。
 
-GitHub 发布范围：Android 普通 low 和 HTTP low，两版均含 armeabi-v7a、arm64-v8a。按需选择一种完整 AAR，替换后重新构建宿主 APK。Windows SDK 和客户支持包保持本地交付。客户支持包沿用 Windows x86、一份双语文档、ReleaseNote 和 Android 获取入口，不包含 Android AAR。
+有 VID 的设备号处于试用或未激活状态时，SDK 可联网找回同机无 VID 设备号上的正式授权。迁移成功后，设备继续使用有 VID 的设备号。若 MQTT 握手正在占用授权请求锁，SDK 在锁释放后补做一次找回。云端无法确认旧授权时，当前设备继续正常注册或激活。
 
-普通依赖：com.github.OSAILab:Middleware:7.4.1
-HTTP 依赖：com.github.OSAILab:Middleware:7.4.1_http
-GitHub 标签存在不等于 JitPack 构件已可下载，应以实际构件解析结果为准。
-
-验证：本地发布模块构建、JNI/ABI 和冻结 AAR 来源检查通过；最低分边界、低动态阈值和历史点选定向回归通过。Android 实机模型、相机、客户原图业务和长跑未验收；生产云端授权未运行。真实 Win7 OS 6.1 验收仍为 NOT_VERIFIED，不影响本次 Android 发布范围。
+Android 提供普通 low 和 HTTP low，两版均包含 armeabi-v7a、arm64-v8a。JitPack 依赖分别为 com.github.OSAILab:Middleware:7.4.2 和 com.github.OSAILab:Middleware:7.4.2_http。请选择一种，替换完整依赖并重新编译宿主 APK。Windows x86 继续通过本地客户支持包交付。

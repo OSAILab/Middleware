@@ -1,19 +1,15 @@
-# OSAI 生鲜识别 SDK Android 7.4.1
+# OSAI 生鲜识别 SDK Android 7.4.2
 
-本仓库提供普通版与 HTTP 版 Android SDK，按项目选择一个依赖。
+普通版适用于 Java 接入。需要在 Android 设备上提供 HTTP 服务时，请选择 HTTP 版。两版均包含 armeabi-v7a 和 arm64-v8a。
 
 ```groovy
 repositories { maven { url 'https://jitpack.io' } }
 // 普通版
-implementation 'com.github.OSAILab:Middleware:7.4.1'
-// 或 HTTP 版，二选一
-implementation 'com.github.OSAILab:Middleware:7.4.1_http'
+implementation 'com.github.OSAILab:Middleware:7.4.2'
+// 或 HTTP 版
+implementation 'com.github.OSAILab:Middleware:7.4.2_http'
 ```
 
-[GitHub Release 7.4.1](https://github.com/OSAILab/Middleware/releases/tag/7.4.1) 提供两份完整 AAR、发布说明和 SHA256SUMS。两版均含 armeabi-v7a、arm64-v8a，最低 Android API 18。使用离线 AAR 时替换完整依赖并重新构建宿主 APK。
+使用固定 VID 初始化时，SDK 可联网找回同机无 VID 设备号的已有正式授权。设备号和可用的 MAC 可在本地读取，有效的本地永久授权支持离线使用。
 
-本版在精选和普通多选中启用模型最低原始相似度；默认 min_conf 为 0.5，模型内显式参数仍优先，精选预学习保留既有 0.4 特例。全部候选不合格时返回空 rank，上层应提供未知商品或手动选择入口。
-
-GitHub 标签存在不等于 JitPack 构件已可下载；在线接入前应实际解析对应 POM/AAR。识别效果需结合目标设备、模型和客户样本验收。
-
-Windows SDK 和客户支持包保持本地交付；客户支持包仅含 Windows x86、一份双语文档、ReleaseNote 和 Android 获取入口，不包含 Android AAR。
+使用离线 AAR 时请选择一种完整依赖，替换后重新编译宿主 APK。两份 AAR、发布说明和 SHA256 校验文件见 [GitHub Release 7.4.2](https://github.com/OSAILab/Middleware/releases/tag/7.4.2)。
